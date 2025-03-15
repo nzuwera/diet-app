@@ -1,7 +1,7 @@
 import "package:flutter/material.dart";
-import 'package:flutter_application/models/category_model.dart';
-import 'package:flutter_application/models/diet_model.dart';
-import 'package:flutter_application/models/popular_model.dart';
+import 'package:diet_app/models/category_model.dart';
+import 'package:diet_app/models/diet_model.dart';
+import 'package:diet_app/models/popular_model.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class HomePage extends StatelessWidget {

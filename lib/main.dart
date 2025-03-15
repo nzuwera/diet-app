@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter_application/pages/home.dart';
+import 'package:diet_app/pages/home.dart';
 
 void main() {
   runApp(const MyApp());
