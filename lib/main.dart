@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:diet_app/pages/home.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const DietApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class DietApp extends StatelessWidget {
+  const DietApp({super.key});
 
   // This widget is the root of your application.
   @override

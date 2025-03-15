@@ -12,6 +12,26 @@ class HomePage extends StatelessWidget {
   final List<PopularDietsModel> popularDiets =
       PopularDietsModel.getPopularDiets();
 
+  void _showDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text("Create new Diet"),
+          content: Text("Feature coming soon..."),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: Text("OK"),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,10 +52,7 @@ class HomePage extends StatelessWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          // Handle button click
-          print("Add button clicked");
-        },
+        onPressed: () => _showDialog(context),
         shape: const CircleBorder(),
         child: SvgPicture.asset(
           'assets/icons/add.svg', // Ensure the SVG is added in assets
