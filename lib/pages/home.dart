@@ -6,17 +6,11 @@ import 'package:flutter_svg/flutter_svg.dart';
 class HomePage extends StatelessWidget {
   HomePage({super.key});
 
-  List<CategoryModel> categories = [];
-  List<DietModel> diets = [];
-
-  void _getInitialInfo() {
-    categories = CategoryModel.getCategories();
-    diets = DietModel.getDiets();
-  }
+ final List<CategoryModel> categories = CategoryModel.getCategories();
+ final List<DietModel> diets = DietModel.getDiets();
 
   @override
   Widget build(BuildContext context) {
-    _getInitialInfo();
     return Scaffold(
       appBar: appBar(),
       backgroundColor: Colors.white,
@@ -30,7 +24,6 @@ class HomePage extends StatelessWidget {
           _dietSection(),
         ],
       ),
-      // bottomNavigationBar: BottomNavigationBar(items: items)
     );
   }
 
@@ -50,14 +43,14 @@ class HomePage extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 15),
-            Container(
+            SizedBox(
               height: 240,
               child: ListView.separated(
                 itemBuilder: (content, index) {
                   return Container(
                     width: 210,
                     decoration: BoxDecoration(
-                      color: diets[index].boxColor.withOpacity(0.3),
+                      color: diets[index].boxColor.withValues(alpha:0.3),
                       borderRadius: BorderRadius.circular(20),
                     ),
                     child: Column(
@@ -75,11 +68,7 @@ class HomePage extends StatelessWidget {
                               ),
                             ),
                             Text(
-                              diets[index].level +
-                                  ' | ' +
-                                  diets[index].duration +
-                                  ' | ' +
-                                  diets[index].calorie,
+                              '${diets[index].level} | ${diets[index].duration} | ${diets[index].calorie}',
                               style: const TextStyle(
                                 color: Color(0xff7B6F72),
                                 fontSize: 13,
@@ -149,7 +138,7 @@ class HomePage extends StatelessWidget {
           ),
         ),
         SizedBox(height: 15),
-        Container(
+        SizedBox(
           height: 120,
           child: ListView.separated(
             itemCount: categories.length,
@@ -160,7 +149,7 @@ class HomePage extends StatelessWidget {
               return Container(
                 width: 100,
                 decoration: BoxDecoration(
-                  color: categories[index].boxColor.withOpacity(0.3),
+                  color: categories[index].boxColor.withValues(alpha:0.3),
                   borderRadius: BorderRadius.circular(16),
                 ),
                 child: Column(
@@ -202,7 +191,7 @@ class HomePage extends StatelessWidget {
       decoration: BoxDecoration(
         boxShadow: [
           BoxShadow(
-            color: Color(0xff1d1617).withOpacity(0.11),
+            color: Color(0xff1d1617).withValues(alpha:0.11),
             blurRadius: 40,
             spreadRadius: 0.0,
           ),
@@ -223,7 +212,7 @@ class HomePage extends StatelessWidget {
               width: 8,
             ),
           ),
-          suffixIcon: Container(
+          suffixIcon: SizedBox(
             width: 80,
             child: IntrinsicHeight(
               child: Row(
